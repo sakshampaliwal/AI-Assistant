@@ -96,8 +96,11 @@ if __name__ == "__main__":
         elif 'open code' in query:
             codePath = "D:\VSCode\Microsoft VS Code\Code.exe"
             os.startfile(codePath)
+        elif 'open word' in query:
+            codePath1= r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
+            os.startfile(codePath1)
 
-        elif 'email to harry' in query:
+        elif 'email to saksham' in query:
             try:
                 speak("What should I say?")
                 content = takeCommand()
