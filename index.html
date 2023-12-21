@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Assistant</title>
+    <!-- Add your CSS styling here -->
+    <style>
+        /* Your CSS styles */
+        body {
+        background-image: url('https://rb.gy/e4zoqe'); /* Replace with your image URL */
+        background-size: cover; /* Adjusts the background image size to cover the entire body */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Prevent the background image from repeating */
+        height: 100vh; /* Set the body height to 100% of viewport height */
+        margin: 0;
+    }
+    </style>
+    
+</head>
+<body>
+    <h1>Voice Assistant Interface</h1>
+    <!-- Your HTML structure -->
+    <img src="https://ogymogy.com/img/listen-microphone-surroundings.png" alt="Img Error" width="300" height="200">
+    <br>
+    <button ="listenBtn">Listen</button>
+
+    <script>
+        document.getElementById('listenBtn').addEventListener('click', () => {
+            fetch('/execute_command', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({command: 'time'}) // Sending a sample command 'time'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data.result); // Log the received result from the backend
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        });
+    </script>
+</body>
+</html>
